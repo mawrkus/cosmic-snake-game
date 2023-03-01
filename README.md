@@ -34,3 +34,9 @@ Music composed around 2004 by firestorm aka "tempête de feu", all rights reserv
 ## 💎 Resources
 
 - [Game Programming Patterns, by Bob Nystrom](http://gameprogrammingpatterns.com/contents.html)
+- [pixabay - royalty free sound effects for download](https://pixabay.com/sound-effects)
+- [TwistedWave - An audio editor in a browser!](https://twistedwave.com/online)
+- [icons8 - free icons and more](https://icons8.com/icon/set/gaming/color)
+- [SheCodes coding tools - 1,671 CSS Color Palettes](https://palettes.shecodes.io/palettes/)
+- [MDN Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+- [MDN Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
