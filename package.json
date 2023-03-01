@@ -1,7 +1,7 @@
 {
   "name": "cosmic-snake",
   "version": "1.0.0",
-  "description": "A snake game built with Vanilla JS, HTML and CSS.",
+  "description": "A game & music experiment in Vanilla JS, HTML & CSS",
   "main": "index.js",
   "scripts": {
     "open": "open game-objects/index.html",
