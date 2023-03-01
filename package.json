@@ -1,0 +1,25 @@
+{
+  "name": "cosmic-snake",
+  "version": "1.0.0",
+  "description": "A snake game built with Vanilla JS, HTML and CSS.",
+  "main": "index.js",
+  "scripts": {
+    "open": "open game-objects/index.html",
+    "start": "npm run dev -- -o component-based-entity-system",
+    "dev": "http-server --no-dotfiles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mawrkus/cosmic-snake.git"
+  },
+  "keywords": [],
+  "author": "mawrkus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mawrkus/cosmic-snake/issues"
+  },
+  "homepage": "https://github.com/mawrkus/cosmic-snake#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

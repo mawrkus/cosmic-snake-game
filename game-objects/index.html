@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- https://icons8.com/icon/set/gaming/color -->
+  <link rel="icon" type="image/png" href="assets/img/web/favicon.png" />
+  <title>Cosmic Snake</title>
+
+  <link href="css/index.css" rel="stylesheet" />
+
+  <script src="js/GameError.js" defer></script>
+  <script src="js/AudioClip.js" defer></script>
+  <script src="js/ui/Grid.js" defer></script>
+  <script src="js/ui/Snake.js" defer></script>
+  <script src="js/ui/SnakeSprite.js" defer></script>
+  <script src="js/ui/Apple.js" defer></script>
+  <script src="js/ui/AppleSprite.js" defer></script>
+  <script src="js/ui/World.js" defer></script>
+  <script src="js/ui/Messages.js" defer></script>
+  <script src="js/KeyboardInputController.js" defer></script>
+  <script src="js/Timer.js" defer></script>
+  <script src="js/StateMachine.js" defer></script>
+  <script src="js/GameStateMachine.js" defer></script>
+  <script src="js/GamePlay.js" defer></script>
+  <script src="js/Game.js" defer></script>
+  <script src="js/index.js" defer></script>
+</head>
+
+<body>
+  <div class="intro-screen">
+    <div class="container">
+      <img class="img fade-in" src="assets/img/web/stars.png" />
+      <div class="title reveal-title">Cosmic Snake 2023</div>
+      <div class="reveal-cta">Press Space to start</div>
+    </div>
+
+    <div class="footer reveal-footer">A game &amp; music experiment by <a href="https://github.com/mawrkus"
+        target="_blank">mawrkus</a>. © 2023, all rights
+      reserved.
+    </div>
+  </div>
+
+  <div class="game">
+    <div class="world hidden">
+
+      <div class="metrics">
+        <div class="timer">0</div>
+        <div class="score">0</div>
+      </div>
+
+      <canvas class="grid"></canvas>
+
+      <div class="control-panel invisible">
+        <button class="left press" title="Turn Left">←</button>
+        <button class="toggle music" title="Toggle Music On/Off"></button>
+        <button class="right press" title="Turn Right">→</button>
+      </div>
+
+      <div class="debug-info hidden">
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+
+    <div class="message">
+      <div class="text"></div>
+      <div class="sub-text"></div>
+    </div>
+
+    <div class="game-background"></div>
+  </div>
+</body>
+
+</html>

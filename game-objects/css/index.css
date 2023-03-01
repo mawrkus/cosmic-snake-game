@@ -1,0 +1,436 @@
+@font-face {
+  font-family: "Snes";
+  src: url("SnesItalic-1G9Be.ttf") format("truetype");
+}
+
+:root {
+  --collision-inc: 4px;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #131313;
+  color: #fff;
+  font-family: "Snes", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* intro screen */
+
+.intro-screen {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 48px;
+}
+
+.intro-screen .container {
+  margin: auto;
+  position: relative;
+  top: -96px;
+}
+
+.intro-screen .title {
+  font-size: 96px;
+}
+
+.intro-screen .footer {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 8px;
+  font-size: 24px;
+}
+
+.intro-screen .footer a {
+  color: #fe9000;
+  text-decoration: none;
+  letter-spacing: 0.1px;
+}
+
+.fade-in {
+  animation: fade-in 2s normal both ease-out;
+}
+
+.reveal-title {
+  animation: reveal 0s 2s forwards;
+  opacity: 0;
+}
+
+.reveal-cta {
+  animation: blink 0.2s ease-in-out infinite alternate;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+.reveal-footer {
+  animation: fade-in 0.5s normal both ease-out;
+  animation-delay: 3s;
+}
+
+/* game */
+
+.game {
+  /* cursor: none; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.game-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* https://www.pexels.com/search/night%20sky/  */
+  background: url() no-repeat center center fixed;
+  background-size: cover;
+}
+
+.game-background.img0 {
+  background-image: url(../assets/img/bkgnd0.jpeg);
+}
+
+.game-background.img1 {
+  background-image: url(../assets/img/bkgnd1.jpeg);
+}
+
+.game-background.img2 {
+  background-image: url(../assets/img/bkgnd2.jpeg);
+}
+
+.game-background.flash {
+  animation: flash 0.05s ease-in;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* message */
+
+.message {
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  min-height: 104px;
+}
+
+.message .text {
+  font-size: 72px;
+}
+
+.message .sub-text {
+  font-size: 32px;
+}
+
+/* world */
+
+.world {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.world .metrics,
+.world .grid,
+.world .control-panel,
+.world .debug-info {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+/* world grid */
+
+.grid {
+  box-sizing: border-box;
+  border: solid 6px #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 69px #fff;
+  transition: 0.1s ease-out;
+}
+
+.grid.paused {
+  box-shadow: 0 0 69px #ccc;
+  opacity: 0.9;
+}
+
+.grid.warped {
+  animation-name: border-blink;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.grid.collision {
+  animation-duration: 0.15s;
+  animation-timing-function: ease-out;
+}
+
+.grid.collision.up {
+  animation-name: collision-up;
+}
+
+.grid.collision.right {
+  animation-name: collision-right;
+}
+
+.grid.collision.down {
+  animation-name: collision-down;
+}
+
+.grid.collision.left {
+  animation-name: collision-left;
+}
+
+/* world metrics */
+
+.metrics {
+  font-size: 32px;
+  min-height: 42px;
+}
+
+.metrics.paused {
+  opacity: 0.6;
+}
+
+.metrics .score,
+.metrics .timer {
+  line-height: 42px;
+  position: absolute;
+  bottom: 0;
+}
+
+.metrics .score {
+  right: 10px;
+  color: #33ff00;
+  /* game over transition */
+  transition: 0.1s ease-out;
+}
+
+.metrics .score.increase {
+  animation: addPoints 0.1s ease-out;
+}
+
+.metrics .score.over {
+  font-size: 48px;
+  text-shadow: 0 0 23px;
+  line-height: 48px;
+}
+
+.metrics .timer {
+  left: 10px;
+}
+
+/* world control panel */
+
+.control-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 8px;
+  min-height: 42px;
+}
+
+.control-panel > button {
+  all: unset;
+  cursor: pointer;
+  font-family: "Snes", sans-serif;
+  font-size: 32px;
+  line-height: 32px;
+  color: #aaa;
+  transition: 0.1s ease-out;
+}
+
+.control-panel > button.press.active {
+  transition: none;
+  animation: highlight 0.1s ease-out;
+}
+
+.control-panel > button.toggle.active {
+  color: #fff;
+}
+
+/* world debug info */
+
+.world .debug-info {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  position: absolute;
+  top: 28px;
+}
+
+/* animations */
+
+@keyframes addPoints {
+  50% {
+    font-size: 48px;
+    text-shadow: 0 0 23px;
+  }
+
+  100% {
+    font-size: 32px;
+    text-shadow: none;
+  }
+}
+
+@keyframes flash {
+  0% {
+    background: rgba(255, 255, 255, 0);
+  }
+  10% {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  20% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  30% {
+    background: rgba(255, 255, 255, 0.75);
+  }
+  40% {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  60% {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  80% {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  90% {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes border-blink {
+  0% {
+    border-color: #000;
+  }
+
+  50% {
+    border-color: #eee;
+  }
+
+  100% {
+    border-color: #000;
+  }
+}
+
+@keyframes collision-up {
+  0% {
+    transform: translate(0, calc(-1 * var(--collision-inc)));
+  }
+
+  50% {
+    transform: translate(0, calc(0.5 * var(--collision-inc)));
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes collision-right {
+  0% {
+    transform: translate(var(--collision-inc), 0);
+  }
+
+  50% {
+    transform: translate(calc(-0.5 * var(--collision-inc)), 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes collision-down {
+  0% {
+    transform: translate(0, var(--collision-inc));
+  }
+
+  50% {
+    transform: translate(0, calc(-0.5 * var(--collision-inc)));
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes collision-left {
+  0% {
+    transform: translate(calc(-1 * var(--collision-inc)), 0);
+  }
+
+  50% {
+    transform: translate(calc(0.5 * var(--collision-inc)), 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes highlight {
+  100% {
+    color: #fff;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
