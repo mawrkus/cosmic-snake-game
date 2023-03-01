@@ -16,8 +16,9 @@ npm i && npm start
 
 ### Component-based entity system (2nd attempt)
 
-- [Entity Component System FAQ](https://github.com/SanderMertens/ecs-faq)
-- [Game Programming Patterns - Component](http://gameprogrammingpatterns.com/component.html)
+- [Game Programming Patterns - Component by Bob Nystrom](http://gameprogrammingpatterns.com/component.html)
+- [Evolve Your Hierarchy by Mick West](https://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/)
+- [Entity Component System FAQ by Sander Mertens](https://github.com/SanderMertens/ecs-faq)
 
 ## 📸 Screenshots
 
@@ -32,4 +33,4 @@ Music composed around 2004 by firestorm aka "tempête de feu", all rights reserv
 
 ## 💎 Resources
 
-- [Game Programming Patterns by Bob Nystrom](http://gameprogrammingpatterns.com/contents.html)
+- [Game Programming Patterns, by Bob Nystrom](http://gameprogrammingpatterns.com/contents.html)
