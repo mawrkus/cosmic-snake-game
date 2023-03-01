@@ -2,6 +2,12 @@
 
 A [snake game](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) built with Vanilla JS, HTML and CSS.
 
+## 🚀 Start
+
+```shell
+npm i && npm start
+```
+
 ## ⛩️ Architecture: core concepts
 
 ### Game Objects (1st attempt)
