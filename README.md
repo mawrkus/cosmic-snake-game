@@ -1,4 +1,4 @@
-# 🕹️ Game & Music experiement: a Snake video game
+# 🕹️ Game & Music experiment: a Snake video game
 
 A [snake game](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) built with Vanilla JS, HTML and CSS.
 
