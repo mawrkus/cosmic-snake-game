@@ -164,7 +164,7 @@ export class TimedEffectSystem extends System {
     this.entityManager.forEachEntities((entityData) => {
       const entityComponents = entityData.get("components");
 
-      // we need to different classes because our entities cannot currently have more than
+      // we need two different classes because our entities cannot currently have more than
       // one component of the same class
       for (const timedEffectComponentName of [
         "FeaturesTimedEffect",
